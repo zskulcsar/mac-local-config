@@ -1,0 +1,35 @@
+---
+# golang/tasks
+- name: Download glide package
+  get_url:
+    url: "{{ glide.url }}"
+    dest: "/tmp/glide-{{ glide.version }}.zip"
+    checksum: "{{ glide.checksum }}"
+
+- name: Extract glide into temp
+  unarchive:
+    src: "/tmp/glide-{{ glide.version }}.zip"
+    dest: "/tmp/"
+    creates: /tmp/darwin-amd64/glide
+
+- name: Place glide with version
+  command: cp /tmp/darwin-amd64/glide /usr/local/bin/glide-{{ glide.version }}
+  args:
+    creates: /usr/local/bin/glide-{{ glide.version }}
+  become: yes
+
+- name: Place glide with version
+  file:
+    path: "/usr/local/bin/glide-{{ glide.version }}"
+    state: file
+    owner: root
+    group: wheel
+    mode: 0755
+  become: yes
+
+- name: Link versioned glide into '/usr/local/bin'
+  file:
+    path: "/usr/local/bin/glide"
+    src: "/usr/local/bin/glide-{{ glide.version }}"
+    state: link
+  become: yes

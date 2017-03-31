@@ -32,3 +32,5 @@
       alias glg='glide get'
       alias gli='glide install'      
       alias glu='glide update'
+
+- include: glide.yml

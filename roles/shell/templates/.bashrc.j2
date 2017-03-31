@@ -13,8 +13,8 @@ alias msc=vs_code
 alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
 
 # Golang
-export GOBIN=/usr/local/go/bin
 export GOPATH={{ go.path }}
+export GOBIN=${GOPATH}/bin
 
 # GIT
 alias gco='git checkout'
@@ -32,6 +32,4 @@ alias getguid='curl -s https://www.uuidgenerator.net/api/version4'
 # PATH extensions
 AWS_CLI_PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7
 
-export PATH=$PATH:$AWS_CLI_PATH/bin:$GOBIN:$GOPATH/bin
-
-export PATH="$HOME/.yarn/bin:$PATH"
+export PATH=$PATH:/usr/local/bin:$AWS_CLI_PATH/bin:$GOPATH:$GOBIN:$HOME/.yarn/bin

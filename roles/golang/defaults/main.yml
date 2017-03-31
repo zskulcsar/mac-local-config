@@ -5,3 +5,11 @@ go_directories:
   - "{{ go.path }}/bin"
   - "{{ go.path }}/src"
   - "{{ go.path }}/pkg"
+
+_glide_version: "v0.12.3"
+
+glide: {
+  version: "{{ _glide_version }}",
+  url: "https://github.com/Masterminds/glide/releases/download/{{ _glide_version }}/glide-{{ _glide_version }}-darwin-amd64.zip",
+  checksum: "sha256:7d93f7ba242adc321fd82e40597eb7432662da13b704d7a3d80c6d5b07e3a46a"
+}
