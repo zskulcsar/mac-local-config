@@ -1,0 +1,17 @@
+---
+# shell/tasks
+- name: Generate .bashrc
+  template:
+    src: .bashrc.j2
+    dest: "/Users/{{ user.name }}/.bashrc"
+    owner: "{{ user.name }}"
+    group: "{{ user.group }}"
+    mode: 0644
+
+- name: Create 'work' directory
+  file:
+    state: directory
+    owner: "{{ user.name }}"
+    group: "{{ user.group }}"
+    mode: 0755
+    path: "/Users/{{ user.name }}/work"

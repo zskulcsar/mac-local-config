@@ -1,0 +1,18 @@
+---
+# Localhost only
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    user: {
+      name: zsoltk,
+      group: staff
+    }
+    go: {
+      path: "/Users/{{ user.name }}/work/go"
+    }
+
+  roles:
+    - shell
+    - golang

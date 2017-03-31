@@ -1,0 +1,7 @@
+---
+# golang/defaults
+go_directories:
+  - "{{ go.path }}"
+  - "{{ go.path }}/bin"
+  - "{{ go.path }}/src"
+  - "{{ go.path }}/pkg"

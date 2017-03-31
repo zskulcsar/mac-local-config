@@ -1,0 +1,10 @@
+---
+# golang/tasks
+- name: Create $GOPATH & the underlying structure
+  file:
+    state: directory
+    owner: "{{ user.name }}"
+    group: "{{ user.group }}"
+    mode: 0755
+    path: "{{ item }}"
+  with_items: "{{ go_directories }}"

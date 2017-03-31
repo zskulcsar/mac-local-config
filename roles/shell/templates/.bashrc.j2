@@ -1,0 +1,37 @@
+# Functions
+vs_code() {
+    /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron $1 > /dev/null 2>&1 &
+}
+
+# Aliases
+# Kube
+alias _kubectl='kubectl --kubeconfig=kubeconfig --insecure-skip-tls-verify'
+
+# Tools
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias msc=vs_code
+alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
+
+# Golang
+export GOBIN=/usr/local/go/bin
+export GOPATH={{ go.path }}
+
+# GIT
+alias gco='git checkout'
+alias gp='git pull'
+alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
+alias gps='git push'
+
+# Other
+alias whatismyip='echo `curl -s -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36" http://bot.whatismyipaddress.com`'
+alias getguid='curl -s https://www.uuidgenerator.net/api/version4'
+
+# PATH extensions
+AWS_CLI_PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7
+
+export PATH=$PATH:$AWS_CLI_PATH/bin:$GOBIN:$GOPATH/bin
+
+export PATH="$HOME/.yarn/bin:$PATH"
