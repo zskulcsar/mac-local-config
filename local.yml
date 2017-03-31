@@ -14,5 +14,5 @@
     }
 
   roles:
-    - shell
-    - golang
+    - { role: shell, tags: [ 'shell' ] }
+    - { role: golang, tags: [ 'golang' ] }

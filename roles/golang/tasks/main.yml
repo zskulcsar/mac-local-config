@@ -8,3 +8,27 @@
     mode: 0755
     path: "{{ item }}"
   with_items: "{{ go_directories }}"
+
+- name: Insert golang aliases
+  blockinfile:
+    dest: "/Users/{{ user.name }}/.bashrc"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK -- golang"
+    state: present
+    insertafter: "# Aliases"
+    content: |
+      alias gog='go get'
+      alias gob='go build'
+      alias got='go test'
+      alias goc='go clean'
+
+- name: Insert glide aliases
+  blockinfile:
+    dest: "/Users/{{ user.name }}/.bashrc"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK -- glide"
+    state: present
+    insertafter: "# Aliases"
+    content: |
+      alias gll='glide list'
+      alias glg='glide get'
+      alias gli='glide install'      
+      alias glu='glide update'
