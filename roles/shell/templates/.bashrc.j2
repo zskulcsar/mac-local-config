@@ -24,6 +24,7 @@ alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
 alias gps='git push'
+alias gupall='for dir in ./*; do pushd $dir; git pull; popd; done'
 
 # Other
 alias whatismyip='echo `curl -s -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36" http://bot.whatismyipaddress.com`'
